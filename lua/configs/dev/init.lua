@@ -1,4 +1,4 @@
-local utils = require("configs.preset.utils")
+local utils = require("configs.dev.utils")
 
 return {
     -- global configs
