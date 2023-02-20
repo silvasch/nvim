@@ -62,6 +62,9 @@ return {
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
     plugins = {
+        -- enhancements
+        { "famiu/bufdelete.nvim" },
+
         -- file pickers
         {
             "nvim-telescope/telescope.nvim",
@@ -96,22 +99,22 @@ return {
             "VonHeikemen/lsp-zero.nvim",
             branch = "v1.x",
             dependencies = {
-                -- LSP Support
-                { 'neovim/nvim-lspconfig' }, -- Required
-                { 'williamboman/mason.nvim' }, -- Optional
-                { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+                -- lsp support
+                { 'neovim/nvim-lspconfig' }, -- required
+                { 'williamboman/mason.nvim' }, -- optional
+                { 'williamboman/mason-lspconfig.nvim' }, -- optional
 
-                -- Autocompletion
-                { 'hrsh7th/nvim-cmp' }, -- Required
-                { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-                { 'hrsh7th/cmp-buffer' }, -- Optional
-                { 'hrsh7th/cmp-path' }, -- Optional
-                { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-                { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+                -- autocompletion
+                { 'hrsh7th/nvim-cmp' }, -- required
+                { 'hrsh7th/cmp-nvim-lsp' }, -- required
+                { 'hrsh7th/cmp-buffer' }, -- optional
+                { 'hrsh7th/cmp-path' }, -- optional
+                { 'saadparwaiz1/cmp_luasnip' }, -- optional
+                { 'hrsh7th/cmp-nvim-lua' }, -- optional
 
-                -- Snippets
-                { 'L3MON4D3/LuaSnip' }, -- Required
-                { 'rafamadriz/friendly-snippets' }, -- Optional
+                -- snippets
+                { 'L3MON4D3/LuaSnip' }, -- required
+                { 'rafamadriz/friendly-snippets' }, -- optional
             },
             config = function()
                 require("configs.dev.lsp")
