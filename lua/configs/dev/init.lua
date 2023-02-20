@@ -16,6 +16,9 @@ return {
 		-- line numbers
 		number = true,
 		relativenumber = true,
+
+        -- signcolumn
+        signcolumn = "yes",
 	},
 
     -- variables
@@ -114,6 +117,9 @@ return {
                 width = 35,
             },
         },
+
+        -- git
+        { "lewis6991/gitsigns.nvim", config = true },
 
         -- themes
         {
