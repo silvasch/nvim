@@ -1,10 +1,13 @@
 function SaveFile()
-    local file_name = vim.fn.bufname() -- get current file name
-    if file_name == "" then -- is it an empty buffer?
-        vim.api.nvim_feedkeys(":w ", "n", true) -- yes, prepare write command for user to type the filename in
-    else
-        vim.cmd([[ write ]]) -- no, already is a file, just save
+    local file_name = vim.fn.bufname()
+    if file_name == "" then
+        file_name = vim.fn.input("Filename (esc or leave empty to cancel): ", "", "file")
+        if file_name == nil or file_name == "" then
+            return
+        end
     end
+    
+    vim.cmd("write " .. file_name)
 end
 
 return {
