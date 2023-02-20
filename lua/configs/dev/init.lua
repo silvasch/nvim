@@ -2,31 +2,28 @@ local utils = require("configs.preset.utils")
 
 return {
     -- global configs
-	mapleader = " ",
+    mapleader = " ",
     colorscheme = "catppuccin",
-
     -- options
     -- you would set them with `:set k=v`, or in lua `vim.opt[k] = v`
-	opts = {
-		-- four wide tabs
-		shiftwidth = 4,
-		tabstop = 4,
-		expandtab = true,
+    opts = {
+        -- four wide tabs
+        shiftwidth = 4,
+        tabstop = 4,
+        expandtab = true,
 
-		-- line numbers
-		number = true,
-		relativenumber = true,
+        -- line numbers
+        number = true,
+        relativenumber = true,
 
         -- signcolumn
         signcolumn = "yes",
-	},
 
-    -- variables
-    -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
-	g = {
         timeoutlen = 150,
     },
-
+    -- variables
+    -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
+    g = {},
     -- mappings
     -- first layer is the mode that the mapping should be activated in
     -- second layer are the keybindings, with the structure of which-key (https://github.com/folke/which-key.nvim#%EF%B8%8F-mappings)
@@ -40,14 +37,27 @@ return {
                 f = { "<cmd>Telescope find_files<cr>", "Open the file picker" },
                 e = { "<cmd>Neotree float<cr>", "Open the file explorer" },
 
-                t = { "<cmd>TroubleToggle<cr>", "Show issues in this file" }
+                t = { "<cmd>TroubleToggle<cr>", "Show issues in this file" },
+
+                g = {
+                    name = "Git",
+                    l = { "<cmd>LazyGit<cr>", "Open lazygit" },
+                },
+
+                l = {
+                    name = "LSP",
+                    r = { vim.lsp.buf.rename, "Rename the current symbol" },
+                    d = { vim.lsp.buf.definition, "Go to the definition of the current symbol" },
+                    h = { vim.lsp.buf.hover, "Open the hover menu of the current symbol" },
+                    s = { vim.lsp.buf.signature_help, "Show the signature of the current symbol" },
+                    a = { vim.lsp.buf.code_action, "Code actions" },
+                }
             }
         },
         i = {},
         v = {},
         x = {},
     },
-
     -- plugins
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
@@ -120,6 +130,7 @@ return {
 
         -- git
         { "lewis6991/gitsigns.nvim", config = true },
+        { "kdheepak/lazygit.nvim" },
 
         -- themes
         {
@@ -130,13 +141,11 @@ return {
             }
         },
     },
-    
     -- this configuration installs three default plugins: folke/which-key.nvim, windwp/nvim-autopairs
     -- and lukas-reineke/indent-blankline.nvim
     -- two of them can be disabled here
     disable_autopairs = false,
     disable_indent_hints = false,
-
     -- autocmds
     -- example:
     -- autocmds = {
@@ -160,7 +169,16 @@ return {
                         vim.cmd("Telescope find_files")
                     end
                 end,
-            }
+            },
+        },
+        {
+            event = "BufWrite",
+            cmd = {
+                desc = "Format the file on save",
+                callback = function()
+                    vim.lsp.buf.format({ async = true })
+                end
+            },
         },
     },
 }
