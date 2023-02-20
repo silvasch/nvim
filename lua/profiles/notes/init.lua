@@ -2,28 +2,25 @@ local utils = require("profiles.notes.utils")
 
 return {
     -- global configs
-	mapleader = " ",
+    mapleader = " ",
     colorscheme = "catppuccin",
-
     -- options
     -- you would set them with `:set k=v`, or in lua `vim.opt[k] = v`
-	opts = {
-		-- four wide tabs
-		shiftwidth = 4,
-		tabstop = 4,
-		expandtab = true,
+    opts = {
+        -- four wide tabs
+        shiftwidth = 4,
+        tabstop = 4,
+        expandtab = true,
 
-		-- line numbers
-		number = true,
-		relativenumber = true,
-	},
-
+        -- line numbers
+        number = true,
+        relativenumber = true,
+    },
     -- variables
     -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
-	g = {
+    g = {
         settimeoutlen = 150,
     },
-
     -- mappings
     -- first layer is the mode that the mapping should be activated in
     -- second layer are the keybindings, with the structure of which-key (https://github.com/folke/which-key.nvim#%EF%B8%8F-mappings)
@@ -39,7 +36,6 @@ return {
         v = {},
         x = {},
     },
-
     -- plugins
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
@@ -63,9 +59,9 @@ return {
                 }
             }
         },
-        
+
         -- treesitter
-        {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+        { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
         -- themes
         {
@@ -76,13 +72,11 @@ return {
             }
         },
     },
-    
     -- this configuration installs three default plugins: folke/which-key.nvim, windwp/nvim-autopairs
     -- and lukas-reineke/indent-blankline.nvim
     -- two of them can be disabled here
     disable_autopairs = false,
     disable_indent_hints = false,
-
     -- autocmds
     -- example:
     -- autocmds = {
