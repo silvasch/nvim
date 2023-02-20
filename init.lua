@@ -1,4 +1,4 @@
-local profile = os.getenv("NVIM_CONFIG")
+local profile = os.getenv("NVIM_PROFILE")
 if profile == nil then
 	profile = "dev"
 end
