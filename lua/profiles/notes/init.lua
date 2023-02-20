@@ -1,4 +1,4 @@
-local utils = require("profiles.notes.utils")
+local utils = require("profiles.minimal.utils")
 
 return {
     -- global configs
