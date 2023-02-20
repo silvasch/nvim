@@ -1,4 +1,4 @@
-local utils = require("configs.dev.utils")
+local utils = require("profiles.dev.utils")
 
 return {
     -- global configs
@@ -121,7 +121,7 @@ return {
                 { 'rafamadriz/friendly-snippets' }, -- optional
             },
             config = function()
-                require("configs.dev.lsp")
+                require("profiles.dev.lsp")
             end
         },
         {

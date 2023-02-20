@@ -9,7 +9,7 @@ end
 
 print("Loading the " .. profile .. " profile...")
 
-local config = require("configs." .. profile)
+local config = require("profiles." .. profile)
 
 require("core.options")(config.opts, config.g, config.mapleader)
 require("core.plugins")(config.plugins, config.colorscheme, profile, config.disable_autopairs,
