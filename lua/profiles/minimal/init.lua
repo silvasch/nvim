@@ -1,9 +1,9 @@
-local utils = require("profiles.preset.utils")
+local utils = require("profiles.minimal.utils")
 
 return {
     -- global configs
 	mapleader = " ",
-    colorscheme = nil,
+    colorscheme = "catppuccin",
 
     -- options
     -- you would set them with `:set k=v`, or in lua `vim.opt[k] = v`
@@ -43,7 +43,33 @@ return {
     -- plugins
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
-    plugins = {},
+    plugins = {
+        -- file pickers
+        {
+            "nvim-telescope/telescope.nvim",
+            tag = "0.1.1",
+            dependencies = {
+                "nvim-lua/plenary.nvim"
+            },
+            config = {
+                defaults = {
+                    file_ignore_patterns = {
+                        "target/",
+                        "node_modules/",
+                    }
+                }
+            }
+        },
+
+        -- themes
+        {
+            "catppuccin/nvim",
+            name = "catppuccin",
+            config = {
+                flavour = "mocha",
+            }
+        },
+    },
     
     -- this configuration installs three default plugins: folke/which-key.nvim, windwp/nvim-autopairs
     -- and lukas-reineke/indent-blankline.nvim
@@ -64,5 +90,17 @@ return {
     --         }
     --     }
     -- }
-    autocmds = {},
+    autocmds = {
+        {
+            event = "VimEnter",
+            cmd = {
+                desc = "Start Telescope when vim is opened with no argumens",
+                callback = function()
+                    if vim.fn.argc() == 0 then
+                        vim.cmd("Telescope find_files")
+                    end
+                end,
+            },
+        },
+    },
 }
