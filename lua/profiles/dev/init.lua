@@ -139,6 +139,9 @@ return {
         { "lewis6991/gitsigns.nvim", config = true },
         { "kdheepak/lazygit.nvim" },
 
+        -- treesitter
+        {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+
         -- themes
         {
             "catppuccin/nvim",
