@@ -44,6 +44,9 @@ return {
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
     plugins = {
+        -- enhancements
+        { "nvim-tree/nvim-web-devicons" },
+
         -- file pickers
         {
             "nvim-telescope/telescope.nvim",

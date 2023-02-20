@@ -68,6 +68,7 @@ return {
         -- enhancements
         { "famiu/bufdelete.nvim" },
         { "rcarriga/nvim-notify" },
+        { "nvim-tree/nvim-web-devicons" },
 
         -- file pickers
         {
