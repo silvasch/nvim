@@ -77,7 +77,7 @@ return {
             dependencies = {
                 "nvim-lua/plenary.nvim"
             },
-            config = {
+            opts = {
                 defaults = {
                     file_ignore_patterns = {
                         "target/",
@@ -130,14 +130,14 @@ return {
             dependencies = {
                 "nvim-tree/nvim-web-devicons",
             },
-            config = {
+            opts = {
                 position = "right",
                 width = 35,
             },
         },
 
         -- git
-        { "lewis6991/gitsigns.nvim",         config = true },
+        { "lewis6991/gitsigns.nvim", opts = true },
         { "kdheepak/lazygit.nvim" },
 
         -- treesitter
@@ -147,7 +147,7 @@ return {
         {
             "catppuccin/nvim",
             name = "catppuccin",
-            config = {
+            opts = {
                 flavour = "mocha",
             }
         },

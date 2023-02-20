@@ -1,4 +1,4 @@
-local utils = require("profiles.minimal.utils")
+local utils = require("profiles.notes.utils")
 
 return {
     -- global configs
@@ -50,7 +50,7 @@ return {
             dependencies = {
                 "nvim-lua/plenary.nvim"
             },
-            config = {
+            opts = {
                 defaults = {
                     file_ignore_patterns = {
                         "target/",
@@ -61,13 +61,23 @@ return {
         },
 
         -- treesitter
-        { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+        {
+            "nvim-treesitter/nvim-treesitter",
+            build = ":TSUpdate",
+            config = function()
+                require("nvim-treesitter.configs").setup({
+                    highlight = {
+                        enable = true,
+                    },
+                })
+            end
+        },
 
         -- themes
         {
             "catppuccin/nvim",
             name = "catppuccin",
-            config = {
+            opts = {
                 flavour = "mocha",
             }
         },

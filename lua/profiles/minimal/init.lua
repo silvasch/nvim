@@ -50,7 +50,7 @@ return {
             dependencies = {
                 "nvim-lua/plenary.nvim"
             },
-            config = {
+            opts = {
                 defaults = {
                     file_ignore_patterns = {
                         "target/",
@@ -67,7 +67,7 @@ return {
         {
             "catppuccin/nvim",
             name = "catppuccin",
-            config = {
+            opts = {
                 flavour = "mocha",
             }
         },
