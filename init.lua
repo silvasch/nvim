@@ -2,7 +2,13 @@ local profile = os.getenv("NVIM_PROFILE")
 if profile == nil then
 	profile = "dev"
 end
+
+if profile == "none" then
+    return
+end
+
 print("Loading the " .. profile .. " profile...")
+
 local config = require("configs." .. profile)
 
 require("core.options")(config.opts, config.g, config.mapleader)
