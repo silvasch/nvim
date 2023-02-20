@@ -36,4 +36,7 @@ return {
     plugins = {},
     -- disable_autopairs = false,
     -- disable_indent_hints = false,
+
+    -- autocmds
+    autocmds = {},
 }
