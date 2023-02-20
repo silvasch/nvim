@@ -21,7 +21,7 @@ return {
     -- variables
     -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
 	g = {
-        settimeoutlen = 150,
+        timeoutlen = 150,
     },
 
     -- mappings
@@ -36,6 +36,8 @@ return {
 
                 f = { "<cmd>Telescope find_files<cr>", "Open the file picker" },
                 e = { "<cmd>Neotree float<cr>", "Open the file explorer" },
+
+                t = { "<cmd>TroubleToggle<cr>", "Show issues in this file" }
             }
         },
         i = {},
@@ -47,7 +49,7 @@ return {
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
     plugins = {
-        -- File pickers
+        -- file pickers
         {
             "nvim-telescope/telescope.nvim",
             tag = "0.1.1",
@@ -76,7 +78,44 @@ return {
             end,
         },
 
-        -- Themes
+        -- lsp
+        {
+            "VonHeikemen/lsp-zero.nvim",
+            branch = "v1.x",
+            dependencies = {
+                -- LSP Support
+                { 'neovim/nvim-lspconfig' }, -- Required
+                { 'williamboman/mason.nvim' }, -- Optional
+                { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+                -- Autocompletion
+                { 'hrsh7th/nvim-cmp' }, -- Required
+                { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+                { 'hrsh7th/cmp-buffer' }, -- Optional
+                { 'hrsh7th/cmp-path' }, -- Optional
+                { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+                { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+
+                -- Snippets
+                { 'L3MON4D3/LuaSnip' }, -- Required
+                { 'rafamadriz/friendly-snippets' }, -- Optional
+            },
+            config = function()
+                require("configs.dev.lsp")
+            end
+        },
+        {
+            "folke/trouble.nvim",
+            dependencies = {
+                "nvim-tree/nvim-web-devicons",
+            },
+            config = {
+                position = "right",
+                width = 35,
+            },
+        },
+
+        -- themes
         {
             "catppuccin/nvim",
             name = "catppuccin",
