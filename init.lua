@@ -1,6 +1,6 @@
 local profile = os.getenv("NVIM_PROFILE")
 if profile == nil then
-	profile = "dev"
+    profile = "dev"
 end
 
 if profile == "none" then
@@ -12,7 +12,8 @@ print("Loading the " .. profile .. " profile...")
 local config = require("configs." .. profile)
 
 require("core.options")(config.opts, config.g, config.mapleader)
-require("core.plugins")(config.plugins, config.colorscheme, profile, config.disable_autopairs, config.disable_indent_hints)
+require("core.plugins")(config.plugins, config.colorscheme, profile, config.disable_autopairs,
+    config.disable_indent_hints)
 require("core.mappings")(config.mappings)
 require("core.autocmds")(config.autocmds)
 

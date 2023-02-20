@@ -51,6 +51,7 @@ return {
                     h = { vim.lsp.buf.hover, "Open the hover menu of the current symbol" },
                     s = { vim.lsp.buf.signature_help, "Show the signature of the current symbol" },
                     a = { vim.lsp.buf.code_action, "Code actions" },
+                    f = { vim.lsp.buf.format, "Format the current file" },
                 }
             }
         },
@@ -172,15 +173,6 @@ return {
                         vim.cmd("Telescope find_files")
                     end
                 end,
-            },
-        },
-        {
-            event = "BufWrite",
-            cmd = {
-                desc = "Format the file on save",
-                callback = function()
-                    vim.lsp.buf.format({ async = true })
-                end
             },
         },
     },
