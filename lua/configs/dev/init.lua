@@ -105,5 +105,17 @@ return {
     --         }
     --     }
     -- }
-    autocmds = {},
+    autocmds = {
+        {
+            event = "VimEnter",
+            cmd = {
+                desc = "Start Telescope when vim is opened with no argumens",
+                callback = function()
+                    if vim.fn.argc() == 0 then
+                        vim.cmd("Telescope find_files")
+                    end
+                end,
+            }
+        },
+    },
 }
