@@ -20,6 +20,8 @@ return {
         signcolumn = "yes",
 
         timeoutlen = 150,
+
+        termguicolors = true,
     },
     -- variables
     -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
@@ -65,6 +67,7 @@ return {
     plugins = {
         -- enhancements
         { "famiu/bufdelete.nvim" },
+        { "rcarriga/nvim-notify" },
 
         -- file pickers
         {
