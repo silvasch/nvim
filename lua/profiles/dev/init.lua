@@ -1,4 +1,4 @@
-local profile_name = "minimal"
+local profile_name = "dev"
 
 local utils = require("profiles." .. profile_name .. ".utils")
 
@@ -20,6 +20,9 @@ return {
         relativenumber = true,
 
         timeoutlen = 150,
+
+        -- signcolumn
+        signcolumn = "yes",
     },
 
     -- variables
@@ -49,11 +52,135 @@ return {
     -- plugins
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
-    plugins = (function()
-        local plugins = {}
-        table.insert(plugins, require("profiles.minimal").plugins)
-        return plugins
-    end)(),
+    plugins = {
+        -- enhancements
+        { "nvim-tree/nvim-web-devicons" },
+        { "rcarriga/nvim-notify" },
+        { "famiu/bufdelete.nvim" },
+
+        -- file pickers
+        {
+            "nvim-telescope/telescope.nvim",
+            tag = "0.1.1",
+            dependencies = {
+                "nvim-lua/plenary.nvim"
+            },
+            opts = {
+                defaults = {
+                    file_ignore_patterns = {
+                        "target/",
+                        "node_modules/",
+                    }
+                }
+            }
+        },
+        {
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v2.x",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons",
+                "MunifTanjim/nui.nvim",
+            },
+            config = function()
+                vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+            end,
+        },
+
+        -- lsp
+        {
+            "VonHeikemen/lsp-zero.nvim",
+            branch = "v1.x",
+            dependencies = {
+                -- lsp support
+                { 'neovim/nvim-lspconfig' }, -- required
+                { 'williamboman/mason.nvim' }, -- optional
+                { 'williamboman/mason-lspconfig.nvim' }, -- optional
+
+                -- autocompletion
+                { 'hrsh7th/nvim-cmp' }, -- required
+                { 'hrsh7th/cmp-nvim-lsp' }, -- required
+                { 'hrsh7th/cmp-buffer' }, -- optional
+                { 'hrsh7th/cmp-path' }, -- optional
+                { 'saadparwaiz1/cmp_luasnip' }, -- optional
+                { 'hrsh7th/cmp-nvim-lua' }, -- optional
+
+                -- snippets
+                { 'L3MON4D3/LuaSnip' }, -- required
+                { 'rafamadriz/friendly-snippets' }, -- optional
+            },
+            config = function()
+                require("profiles." .. profile_name .. ".plugins.lsp")
+            end
+        },
+        {
+            "folke/trouble.nvim",
+            dependencies = {
+                "nvim-tree/nvim-web-devicons",
+            },
+            opts = {
+                position = "right",
+                width = 35,
+            },
+        },
+
+        -- git
+        { "lewis6991/gitsigns.nvim", opts = {} },
+        { "kdheepak/lazygit.nvim" },
+
+        -- treesitter
+        {
+            "nvim-treesitter/nvim-treesitter",
+            build = "TSUpdate",
+            config = function()
+                require("profiles." .. profile_name .. ".plugins.treesitter")
+            end,
+        },
+
+        -- themes
+        {
+            "catppuccin/nvim",
+            name = "catppuccin",
+            opts = {
+                flavour = "mocha",
+            }
+        },
+
+        -- file pickers
+        {
+            "nvim-telescope/telescope.nvim",
+            tag = "0.1.1",
+            dependencies = {
+                "nvim-lua/plenary.nvim"
+            },
+            opts = {
+                defaults = {
+                    file_ignore_patterns = {
+                        "target/",
+                        "node_modules/",
+                    }
+                }
+            }
+        },
+
+        -- treesitter
+        {
+            "nvim-treesitter/nvim-treesitter",
+            build = "TSUpdate",
+            config = function()
+                require("profiles." .. profile_name .. ".plugins.treesitter")
+            end,
+        },
+
+        -- themes
+        {
+            "catppuccin/nvim",
+            name = "catppuccin",
+            opts = {
+                flavour = "mocha",
+            }
+        },
+    },
 
     -- this configuration installs three default plugins: folke/which-key.nvim, windwp/nvim-autopairs
     -- and lukas-reineke/indent-blankline.nvim
