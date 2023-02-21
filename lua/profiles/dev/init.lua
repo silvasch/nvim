@@ -42,6 +42,24 @@ return {
                     "<cmd>Telescope find_files<cr>",
                     "Open the file picker"
                 },
+                e = { "<cmd>Neotree float<cr>", "Open the file explorer" },
+
+                t = { "<cmd>TroubleToggle<cr>", "Show issues in this file" },
+
+                g = {
+                    name = "Git",
+                    l = { "<cmd>LazyGit<cr>", "Open lazygit" },
+                },
+
+                l = {
+                    name = "LSP",
+                    r = { vim.lsp.buf.rename, "Rename the current symbol" },
+                    d = { vim.lsp.buf.definition, "Go to the definition of the current symbol" },
+                    h = { vim.lsp.buf.hover, "Open the hover menu of the current symbol" },
+                    s = { vim.lsp.buf.signature_help, "Show the signature of the current symbol" },
+                    a = { vim.lsp.buf.code_action, "Code actions" },
+                    f = { vim.lsp.buf.format, "Format the current file" },
+                },
 	    },
 	},
         i = {},
