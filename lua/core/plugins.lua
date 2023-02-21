@@ -1,4 +1,4 @@
-return function(plugins, colorscheme, profile, disable_autopairs, disable_indent_hints)
+return function(plugins, colorscheme, profile, default_plugins)
     -- Bootstrap lazy
     local lazypath = vim.fn.stdpath("data") .. "/lazy.nvim"
     if not vim.loop.fs_stat(lazypath) then
@@ -18,14 +18,14 @@ return function(plugins, colorscheme, profile, disable_autopairs, disable_indent
             { "folke/which-key.nvim", config = true }
     })
 
-    if disable_autopairs == true then
+    if default_plugins.disable_autopairs == true then
     else
         table.insert(plugins, {
             { "windwp/nvim-autopairs", config = true },
         })
     end
 
-    if disable_indent_hints == true then
+    if default_plugins.disable_indent_hints == true then
     else
         table.insert(plugins, {
             { "lukas-reineke/indent-blankline.nvim" },

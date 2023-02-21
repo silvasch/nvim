@@ -1,6 +1,4 @@
-local profile_name = "preset"
-
-local utils = require("profiles." .. profile_name .. ".utils")
+local profile_name = "empty"
 
 return {
     -- global configs
@@ -33,8 +31,10 @@ return {
     -- this configuration installs three default plugins: folke/which-key.nvim, windwp/nvim-autopairs
     -- and lukas-reineke/indent-blankline.nvim
     -- two of them can be disabled here
-    disable_autopairs = false,
-    disable_indent_hints = false,
+    default_plugins = {
+        disable_autopairs = false,
+        disable_indent_hints = false,
+    },
 
     -- autocmds
     -- example:
