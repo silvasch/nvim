@@ -70,6 +70,15 @@ return {
             }
         },
 
+        -- treesitter
+        {
+            "nvim-treesitter/nvim-treesitter",
+            build = "TSUpdate",
+            config = function()
+                require("profiles." .. profile_name .. ".plugins.treesitter")
+            end,
+        },
+
         -- themes
         {
             "catppuccin/nvim",
