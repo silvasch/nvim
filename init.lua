@@ -1,6 +1,6 @@
 local profile = os.getenv("NVIM_PROFILE")
 if profile == nil then
-    profile = "empty"
+    profile = "minimal"
 end
 
 if profile == "none" then
