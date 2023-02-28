@@ -6,7 +6,6 @@ return {
     -- global configs
     mapleader = " ",
     colorscheme = "catppuccin",
-
     -- options
     -- you would set them with `:set k=v`, or in lua `vim.opt[k] = v`
     opts = {
@@ -24,11 +23,9 @@ return {
         -- signcolumn
         signcolumn = "yes",
     },
-
     -- variables
     -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
     g = {},
-
     -- mappings
     -- first layer is the mode that the mapping should be activated in
     -- second layer are the keybindings, with the structure of which-key (https://github.com/folke/which-key.nvim#%EF%B8%8F-mappings)
@@ -60,13 +57,12 @@ return {
                     a = { vim.lsp.buf.code_action, "Code actions" },
                     f = { vim.lsp.buf.format, "Format the current file" },
                 },
-	    },
-	},
+            },
+        },
         i = {},
         v = {},
         x = {},
     },
-
     -- plugins
     -- this table gets passed directly to lazy.nvim, the plugin manager
     -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
@@ -141,6 +137,10 @@ return {
                 width = 35,
             },
         },
+        {
+            "iamcco/markdown-preview.nvim",
+            build = function() vim.fn["mkdp#util#install"]() end,
+        },
 
         -- git
         { "lewis6991/gitsigns.nvim", opts = {} },
@@ -199,7 +199,6 @@ return {
             }
         },
     },
-
     -- this configuration installs three default plugins: folke/which-key.nvim, windwp/nvim-autopairs
     -- and lukas-reineke/indent-blankline.nvim
     -- two of them can be disabled here
@@ -207,7 +206,6 @@ return {
         disable_autopairs = false,
         disable_indent_hints = false,
     },
-
     -- autocmds
     -- example:
     -- autocmds = {
@@ -226,11 +224,11 @@ return {
             event = "VimEnter",
             cmd = {
                 desc = "Start telescope when opening nvim without any arguments",
-		        callback = function()
-			        if vim.fn.argc() == 0 then
-				        vim.cmd("Telescope find_files")
-			        end
-		        end,
+                callback = function()
+                    if vim.fn.argc() == 0 then
+                        vim.cmd("Telescope find_files")
+                    end
+                end,
             },
         },
     },
