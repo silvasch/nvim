@@ -19,6 +19,8 @@ return {
         timeoutlen = 150,
         -- signcolumn
         signcolumn = "yes",
+
+        background = "dark",
     },
     -- variables
     -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
@@ -141,10 +143,6 @@ return {
                 width = 35,
             },
         },
-        {
-            "iamcco/markdown-preview.nvim",
-            build = function() vim.fn["mkdp#util#install"]() end,
-        },
 
         -- git
         { "lewis6991/gitsigns.nvim", opts = {} },
@@ -192,6 +190,10 @@ return {
                 flavour = "mocha",
             }
         },
+        {
+            "nyoom-engineering/oxocarbon.nvim",
+        },
+        { "atelierbram/Base2Tone-nvim" },
 
         -- file pickers
         {
