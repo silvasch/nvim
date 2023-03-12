@@ -74,6 +74,7 @@ return {
         { "nvim-tree/nvim-web-devicons" },
         { "rcarriga/nvim-notify" },
         { "famiu/bufdelete.nvim" },
+        { "stevearc/dressing.nvim" },
 
         -- file pickers
         {
