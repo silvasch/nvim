@@ -13,13 +13,10 @@ return {
         shiftwidth = 4,
         tabstop = 4,
         expandtab = true,
-
         -- line numbers
         number = true,
         relativenumber = true,
-
         timeoutlen = 150,
-
         -- signcolumn
         signcolumn = "yes",
     },
@@ -39,6 +36,10 @@ return {
                     "<cmd>Telescope find_files<cr>",
                     "Open the file picker"
                 },
+                F = {
+                    "<cmd>Telescope lsp_document_symbols<cr>",
+                    "Pick a symbol in the current document"
+                },
                 e = { "<cmd>Neotree float<cr>", "Open the file explorer" },
 
                 t = { "<cmd>TroubleToggle<cr>", "Show issues in this file" },
@@ -57,6 +58,8 @@ return {
                     a = { vim.lsp.buf.code_action, "Code actions" },
                     f = { vim.lsp.buf.format, "Format the current file" },
                 },
+
+                i = { "<cmd>Neorg index<cr>", "Open neorg index" }
             },
         },
         i = {},
@@ -107,20 +110,20 @@ return {
             branch = "v1.x",
             dependencies = {
                 -- lsp support
-                { 'neovim/nvim-lspconfig' }, -- required
-                { 'williamboman/mason.nvim' }, -- optional
+                { 'neovim/nvim-lspconfig' },             -- required
+                { 'williamboman/mason.nvim' },           -- optional
                 { 'williamboman/mason-lspconfig.nvim' }, -- optional
 
                 -- autocompletion
-                { 'hrsh7th/nvim-cmp' }, -- required
-                { 'hrsh7th/cmp-nvim-lsp' }, -- required
-                { 'hrsh7th/cmp-buffer' }, -- optional
-                { 'hrsh7th/cmp-path' }, -- optional
+                { 'hrsh7th/nvim-cmp' },         -- required
+                { 'hrsh7th/cmp-nvim-lsp' },     -- required
+                { 'hrsh7th/cmp-buffer' },       -- optional
+                { 'hrsh7th/cmp-path' },         -- optional
                 { 'saadparwaiz1/cmp_luasnip' }, -- optional
-                { 'hrsh7th/cmp-nvim-lua' }, -- optional
+                { 'hrsh7th/cmp-nvim-lua' },     -- optional
 
                 -- snippets
-                { 'L3MON4D3/LuaSnip' }, -- required
+                { 'L3MON4D3/LuaSnip' },             -- required
                 { 'rafamadriz/friendly-snippets' }, -- optional
             },
             config = function()
@@ -153,6 +156,31 @@ return {
             config = function()
                 require("profiles." .. profile_name .. ".plugins.treesitter")
             end,
+        },
+
+        -- neorg
+        {
+            "nvim-neorg/neorg",
+            build = ":Neorg sync-parsers",
+            opts = {
+                load = {
+                    ["core.defaults"] = {},   -- Loads default behaviour
+                    ["core.norg.concealer"] = {
+                        config = {
+                            folds = false,
+                        }
+                    }, -- Adds pretty icons to your documents
+                    ["core.norg.dirman"] = {  -- Manages Neorg workspaces
+                        config = {
+                            workspaces = {
+                                notes = "~/Notes",
+                            },
+                            default_workspace = "notes",
+                        },
+                    },
+                },
+            },
+            dependencies = { { "nvim-lua/plenary.nvim" } },
         },
 
         -- themes
