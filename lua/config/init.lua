@@ -1,4 +1,5 @@
 return {
+    colorscheme = nil,
 	mapleader = " ",
 
 	opts = {
@@ -8,4 +9,8 @@ return {
 		expandtab = true,
 	},
 	g = {},
+    plugins = {
+        -- enhancements
+        { "windwp/nvim-autopairs", config = true },
+    },
 }
