@@ -23,6 +23,10 @@ return {
                     funcs.save_file.func,
                     funcs.save_file.desc,
                 },
+                q = {
+                    funcs.quit_nvim.func,
+                    funcs.quit_nvim.desc,
+                },
 
                 f = {
                     funcs.find_files.func,

@@ -17,6 +17,12 @@ return {
         desc = "Open the file picker",
         func = function()
             vim.cmd("Telescope find_files")
-        end
+        end,
+    },
+    quit_nvim = {
+        desc = "Quit NeoVim",
+        func = function()
+            vim.cmd("quit")
+        end,
     }
 }
