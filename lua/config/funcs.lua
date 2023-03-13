@@ -40,11 +40,11 @@ return {
     },
     lsp_hover = {
         desc = "LSP: Show the hover menu of the current symbol",
-        func = vim.lsp.buf.signature_help,
+        func = vim.lsp.buf.hover,
     },
     code_actions = {
         desc = "LSP: Code actions",
-        func = vim.lsp.buf.code_actions,
+        func = vim.lsp.buf.code_action,
     },
     format = {
         desc = "LSP: Format the current document",
@@ -52,7 +52,7 @@ return {
     },
     lsp_declaration = {
         desc = "LSP: Go to the declaration of the current symbol",
-        func = vim.lsp.buf.hover,
+        func = vim.lsp.buf.declaration,
     },
     lsp_definition = {
         desc = "LSP: Go to the definition of the current symbol",
