@@ -8,23 +8,4 @@ return {
 		expandtab = true,
 	},
 	g = {},
-<<<<<<< HEAD
-    -- this table will be passed to lazy.nvim
-    plugins = {
-        -- enhancements
-        { "windwp/nvim-autopairs", config = true },
-    },
-    mappings = {
-        n = {
-            w = {  }
-        }
-    },
-    funcs = {
-        ["say_hello"] = {
-            function() print("Hello, World!") end,
-            description = "Say hello to the world",
-        },
-    }
-=======
->>>>>>> parent of d54e3b7 (feat: add plugins)
 }
