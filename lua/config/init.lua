@@ -1,21 +1,17 @@
 local funcs = require("config.funcs")
 
 return {
-	mapleader = " ",
+    mapleader = " ",
     colorscheme = "catppuccin",
-
     command_palette_mapping = "<leader>p",
-
-	opts = {
-		-- tab length
-		tabstop = 4,
-		shiftwidth = 4,
-		expandtab = true,
-
+    opts = {
+        -- tab length
+        tabstop = 4,
+        shiftwidth = 4,
+        expandtab = true,
         timeoutlen = 150,
-	},
-	g = {},
-
+    },
+    g = {},
     mappings = {
         n = {
             ["<leader>"] = {
@@ -24,8 +20,8 @@ return {
                     funcs.save_file.desc,
                 },
                 q = {
-                    funcs.quit_nvim.func,
-                    funcs.quit_nvim.desc,
+                    funcs.quit_buffer.func,
+                    funcs.quit_buffer.desc,
                 },
 
                 f = {
@@ -40,10 +36,9 @@ return {
             },
         },
     },
-
     plugins = {
         -- small enhancements
-        { "windwp/nvim-autopairs", config = true },
+        { "windwp/nvim-autopairs",      config = true },
         { "nvim-tree/nvim-web-devicons" },
         { "rcarriga/nvim-notify" },
         { "famiu/bufdelete.nvim" },

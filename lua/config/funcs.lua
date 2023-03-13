@@ -19,8 +19,8 @@ return {
             vim.cmd("Telescope find_files")
         end,
     },
-    quit_nvim = {
-        desc = "Quit NeoVim",
+    quit_buffer = {
+        desc = "Quit the current buffer",
         func = function()
             vim.cmd("quit")
         end,
@@ -32,4 +32,30 @@ return {
             vim.cmd("TroubleToggle")
         end,
     },
+
+    -- lsp
+    lsp_rename = {
+        desc = "LSP: Rename the current symbol",
+        func = vim.lsp.buf.rename,
+    },
+    lsp_hover = {
+        desc = "LSP: Show the hover menu of the current symbol",
+        func = vim.lsp.buf.signature_help,
+    },
+    code_actions = {
+        desc = "LSP: Code actions",
+        func = vim.lsp.buf.code_actions,
+    },
+    format = {
+        desc = "LSP: Format the current document",
+        func = vim.lsp.buf.format,
+    },
+    lsp_declaration = {
+        desc = "LSP: Go to the declaration of the current symbol",
+        func = vim.lsp.buf.hover,
+    },
+    lsp_definition = {
+        desc = "LSP: Go to the definition of the current symbol",
+        func = vim.lsp.definition,
+    }
 }
