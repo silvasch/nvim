@@ -10,6 +10,14 @@ return {
 	},
 	g = {},
     plugins = {
+        -- file pickers
+        {
+            "nvim-telescope/telescope.nvim",
+            dependencies = {
+                { "nvim-lua/plenary.nvim" },
+            },
+        },
+
         -- themes
         { "catppuccin/nvim", name = "catppuccin" },
     },
