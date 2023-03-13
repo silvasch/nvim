@@ -24,5 +24,12 @@ return {
         func = function()
             vim.cmd("quit")
         end,
-    }
+    },
+
+    open_trouble = {
+        desc = "Open trouble",
+        func = function()
+            vim.cmd("TroubleToggle")
+        end,
+    },
 }
