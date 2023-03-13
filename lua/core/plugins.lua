@@ -20,4 +20,6 @@ return function(plugins, colorscheme)
             colorscheme = { colorscheme },
         },
     })
+
+    vim.cmd("colorscheme " .. colorscheme)
 end

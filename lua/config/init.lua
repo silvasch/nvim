@@ -1,5 +1,6 @@
 return {
 	mapleader = " ",
+    colorscheme = "catppuccin",
 
 	opts = {
 		-- tab length
@@ -8,4 +9,8 @@ return {
 		expandtab = true,
 	},
 	g = {},
+    plugins = {
+        -- themes
+        { "catppuccin/nvim", name = "catppuccin" },
+    },
 }
