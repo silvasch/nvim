@@ -12,4 +12,11 @@ return {
             vim.cmd("write " .. file_name)
         end,
     },
+
+    find_files = {
+        desc = "Open the file picker",
+        func = function()
+            vim.cmd("Telescope find_files")
+        end
+    }
 }

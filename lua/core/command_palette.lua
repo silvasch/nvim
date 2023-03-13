@@ -14,7 +14,7 @@ end
 return function(opts)
     opts = opts or {}
     pickers.new(opts, {
-        prompt_title = "Functions",
+        prompt_title = "Command Palette",
         finder = finders.new_table({
             results = funcs_for_entry_maker,
             entry_maker = function(entry)
