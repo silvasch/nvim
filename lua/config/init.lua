@@ -1,5 +1,4 @@
 return {
-    colorscheme = nil,
 	mapleader = " ",
 
 	opts = {
@@ -9,6 +8,7 @@ return {
 		expandtab = true,
 	},
 	g = {},
+<<<<<<< HEAD
     -- this table will be passed to lazy.nvim
     plugins = {
         -- enhancements
@@ -25,4 +25,6 @@ return {
             description = "Say hello to the world",
         },
     }
+=======
+>>>>>>> parent of d54e3b7 (feat: add plugins)
 }
