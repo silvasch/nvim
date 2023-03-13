@@ -11,7 +11,6 @@ end
 require("core.plugins")(default_plugins, config.colorscheme)
 
 require("core.mappings")(config.mappings)
-
 if not (config.command_palette_mapping == nil) then
     require("which-key").register({
         {
@@ -22,3 +21,5 @@ if not (config.command_palette_mapping == nil) then
         }
     })
 end
+
+require("core.autocmds")(config.autocmds)

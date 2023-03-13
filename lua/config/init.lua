@@ -47,4 +47,17 @@ return {
         -- themes
         { "catppuccin/nvim", name = "catppuccin" },
     },
+    autocmds = {
+        {
+            event = "VimEnter",
+            cmd = {
+                desc = "Start telescope when opening nvim without any arguments",
+                callback = function()
+                    if vim.fn.argc() == 0 then
+                        vim.cmd("Telescope find_files")
+                    end
+                end,
+            },
+        },
+    },
 }
