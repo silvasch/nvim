@@ -13,6 +13,13 @@ return {
         end,
     },
 
+    select_colorscheme = {
+        desc = "Select the colorscheme",
+        func = function()
+            vim.cmd("Telescope colorscheme")
+        end
+    },
+
     find_files = {
         desc = "Open the file picker",
         func = function()
@@ -24,6 +31,25 @@ return {
         func = function()
             vim.cmd("quit")
         end,
+    },
+    new_file = {
+        desc = "Create a new file",
+        func = function()
+            vim.cmd("enew")
+        end
+    },
+
+    open_config_file = {
+        desc = "Open the config file",
+        func = function()
+            vim.cmd("e ~/.config/nvim/lua/config/init.lua")
+        end
+    },
+    open_funcs_file = {
+        desc = "Open the command definition file",
+        func = function()
+            vim.cmd("e ~/.config/nvim/lua/config/funcs.lua")
+        end
     },
 
     open_trouble = {
@@ -57,5 +83,12 @@ return {
     lsp_definition = {
         desc = "LSP: Go to the definition of the current symbol",
         func = vim.lsp.definition,
+    },
+
+    lazygit = {
+        desc = "Open lazygit",
+        func = function()
+            vim.cmd("LazyGit")
+        end
     }
 }

@@ -9,7 +9,16 @@ return {
         tabstop = 4,
         shiftwidth = 4,
         expandtab = true,
+
+        -- line numbers
+        number = true,
+        relativenumber = true,
+
         timeoutlen = 150,
+
+        signcolumn = "yes",
+
+        background = "dark",
     },
     g = {},
     mappings = {
@@ -32,7 +41,12 @@ return {
                 t = {
                     funcs.open_trouble.func,
                     funcs.open_trouble.desc,
-                }
+                },
+
+            },
+            [":"] = {
+                "<cmd>FineCmdline<cr>",
+                "Open the command line",
             },
         },
     },
@@ -43,6 +57,12 @@ return {
         { "rcarriga/nvim-notify" },
         { "famiu/bufdelete.nvim" },
         { "stevearc/dressing.nvim" },
+        {
+            "VonHeikemen/fine-cmdline.nvim",
+            dependencies = {
+                { "MunifTanjim/nui.nvim" },
+            },
+        },
 
         -- file pickers
         {
@@ -58,21 +78,21 @@ return {
             branch = "v1.x",
             dependencies = {
                 -- lsp support
-                { 'neovim/nvim-lspconfig' },             -- required
-                { 'williamboman/mason.nvim' },           -- optional
-                { 'williamboman/mason-lspconfig.nvim' }, -- optional
+                { "neovim/nvim-lspconfig" },             -- required
+                { "williamboman/mason.nvim" },           -- optional
+                { "williamboman/mason-lspconfig.nvim" }, -- optional
 
                 -- autocompletion
-                { 'hrsh7th/nvim-cmp' },         -- required
-                { 'hrsh7th/cmp-nvim-lsp' },     -- required
-                { 'hrsh7th/cmp-buffer' },       -- optional
-                { 'hrsh7th/cmp-path' },         -- optional
-                { 'saadparwaiz1/cmp_luasnip' }, -- optional
-                { 'hrsh7th/cmp-nvim-lua' },     -- optional
+                { "hrsh7th/nvim-cmp", },        -- required
+                { "hrsh7th/cmp-nvim-lsp" },     -- required
+                { "hrsh7th/cmp-buffer" },       -- optional
+                { "hrsh7th/cmp-path" },         -- optional
+                { "saadparwaiz1/cmp_luasnip" }, -- optional
+                { "hrsh7th/cmp-nvim-lua" },     -- optional
 
                 -- snippets
-                { 'L3MON4D3/LuaSnip' },             -- required
-                { 'rafamadriz/friendly-snippets' }, -- optional
+                { "L3MON4D3/LuaSnip" },             -- required
+                { "rafamadriz/friendly-snippets" }, -- optional
             },
             config = function()
                 require("config.plugins.lsp")
@@ -87,6 +107,16 @@ return {
                 position = "right",
                 width = 35,
             },
+        },
+        {
+            "saecki/crates.nvim",
+            tag = "v0.3.0",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+            },
+            config = function()
+                require("crates").setup()
+            end
         },
 
         -- git
@@ -103,7 +133,15 @@ return {
         },
 
         -- themes
-        { "catppuccin/nvim", name = "catppuccin" },
+        { "catppuccin/nvim",                 name = "catppuccin" },
+        { "nyoom-engineering/oxocarbon.nvim" },
+        { "NTBBloodbath/sweetie.nvim" },
+        {
+            "rebelot/kanagawa.nvim",
+            opts = {
+                theme = "wave",
+            },
+        },
     },
     autocmds = {
         {
