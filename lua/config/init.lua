@@ -1,26 +1,30 @@
 local funcs = require("config.funcs")
 
 return {
+    -- global configs
     mapleader = " ",
     colorscheme = "catppuccin",
     command_palette_mapping = "<leader>p",
+    -- options
+    -- you would set them with `:set k=v`, or in lua `vim.opt[k] = v`
     opts = {
         -- tab length
         tabstop = 4,
         shiftwidth = 4,
         expandtab = true,
-
         -- line numbers
         number = true,
         relativenumber = true,
-
         timeoutlen = 150,
-
         signcolumn = "yes",
-
         background = "dark",
     },
+    -- variables
+    -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
     g = {},
+    -- mappings
+    -- first layer is the mode that the mapping should be usable in
+    -- second layer are the keybindings, defined with the structure of which-key (https://github.com/folke/which-key.nvim#%EF%B8%8F-mappings)
     mappings = {
         n = {
             ["<leader>"] = {
@@ -49,7 +53,13 @@ return {
                 "Open the command line",
             },
         },
+        i = {},
+        v = {},
+        x = {},
     },
+    -- plugins
+    -- this table gets passed directly to lazy.nvim, the plugin manager
+    -- look at the structure here: https://github.com/folke/lazy.nvim#-plugin-spec
     plugins = {
         -- small enhancements
         { "windwp/nvim-autopairs",      config = true },
@@ -133,7 +143,10 @@ return {
         },
 
         -- themes
-        { "catppuccin/nvim",                 name = "catppuccin" },
+        {
+            "catppuccin/nvim",
+            name = "catppuccin"
+        },
         { "nyoom-engineering/oxocarbon.nvim" },
         { "NTBBloodbath/sweetie.nvim" },
         {
@@ -143,7 +156,21 @@ return {
             },
         },
     },
+    -- autocmds
+    -- example:
+    -- autocmds = {
+    --     {
+    --         event = "VimEnter",
+    --         cmd = {
+    --             desc = "Example autocommand",
+    --             callback = function()
+    --                 print("Ran the example autocommand")
+    --             end
+    --         }
+    --     }
+    -- }
     autocmds = {
+        -- run `Telescope find_files` on startup
         {
             event = "VimEnter",
             cmd = {

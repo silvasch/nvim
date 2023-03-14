@@ -1,3 +1,10 @@
+-- funcs
+-- define all commands that the command palette should know here
+-- structure:
+-- <name> = {
+--     desc = <description>,
+--     func = <function that should be executed>
+-- }
 return {
     save_file = {
         desc = "Save the current file",
