@@ -142,6 +142,31 @@ return {
             end
         },
 
+        -- neorg
+        {
+            "nvim-neorg/neorg",
+            build = ":Neorg sync-parsers",
+            opts = {
+                load = {
+                    ["core.defaults"] = {}, -- loads default behaviour
+                    ["core.norg.concealer"] = {
+                        config = {
+                            folds = false,
+                        }
+                    },                       -- adds pretty icons to your documents
+                    ["core.norg.dirman"] = { -- manages neorg workspaces
+                        config = {
+                            workspaces = {
+                                notes = "~/Notes",
+                            },
+                            default_workspace = "notes",
+                        },
+                    },
+                },
+            },
+            dependencies = { { "nvim-lua/plenary.nvim" } },
+        },
+
         -- git
         { "lewis6991/gitsigns.nvim", opts = {} },
         { "kdheepak/lazygit.nvim" },
