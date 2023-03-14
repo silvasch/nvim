@@ -47,6 +47,17 @@ return {
                     funcs.open_trouble.desc,
                 },
 
+                l = {
+                    name = "LSP",
+                    r = { vim.lsp.buf.rename, "Rename the current symbol" },
+                    d = { vim.lsp.buf.definition, "Go to the definition of the current symbol" },
+                    D = { vim.lsp.buf.declaration, "Go to the declaration of the current symbol" },
+                    h = { vim.lsp.buf.hover, "Open the hover menu of the current symbol" },
+                    s = { vim.lsp.buf.signature_help, "Show the signature of the current symbol" },
+                    a = { vim.lsp.buf.code_action, "Code actions" },
+                    f = { vim.lsp.buf.format, "Format the current file" },
+                },
+
             },
             [":"] = {
                 "<cmd>FineCmdline<cr>",
