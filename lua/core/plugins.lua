@@ -1,4 +1,4 @@
-return function(plugins, colorscheme)
+return function(plugins, colorscheme, profile)
     -- Bootstrap lazy
     local lazypath = vim.fn.stdpath("data") .. "/lazy.nvim"
     if not vim.loop.fs_stat(lazypath) then
@@ -14,12 +14,12 @@ return function(plugins, colorscheme)
     vim.opt.rtp:prepend(lazypath)
 
     require("lazy").setup(plugins, {
-        root = vim.fn.stdpath("data") .. "/plugins/",
-        lockfile = vim.fn.stdpath("data") .. "/plugins/lazy-lock.json",
+        root = vim.fn.stdpath("data") .. "/plugins/" .. profile,
+        lockfile = vim.fn.stdpath("data") .. "/plugins/" .. profile .. "lazy-lock.json",
         install = {
             colorscheme = { colorscheme },
         },
     })
 
-    vim.cmd("colorscheme " .. colorscheme)
+    if not (colorscheme == nil) then vim.cmd("colorscheme " .. colorscheme) end
 end

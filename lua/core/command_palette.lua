@@ -4,19 +4,12 @@ local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
 
-local funcs = require("config.funcs")
-local funcs_for_entry_maker = {}
-for _, v in pairs(funcs) do
-    table.insert(funcs_for_entry_maker, v)
-end
-
-
-return function(opts)
+return function(opts, funcs)
     opts = opts or {}
     pickers.new(opts, {
         prompt_title = "Command Palette",
         finder = finders.new_table({
-            results = funcs_for_entry_maker,
+            results = funcs,
             entry_maker = function(entry)
                 return {
                     value = entry,
