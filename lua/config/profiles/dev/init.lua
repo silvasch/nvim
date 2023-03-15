@@ -43,6 +43,10 @@ return {
                     funcs.find_files.func,
                     funcs.find_files.desc,
                 },
+                e = {
+                    funcs.open_file_tree.func,
+                    funcs.open_file_tree.desc,
+                },
 
                 t = {
                     funcs.open_trouble.func,
@@ -94,6 +98,15 @@ return {
                 { "nvim-lua/plenary.nvim" },
             },
         },
+        {
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v2.x",
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+                "MunifTanjim/nui.nvim",
+            }
+        },
 
         -- lsp
         {
@@ -141,7 +154,7 @@ return {
                 require("crates").setup()
             end
         },
-        { "j-hui/fidget.nvim", config = true },
+        { "j-hui/fidget.nvim",       config = true },
 
         -- neorg
         {

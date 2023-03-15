@@ -32,6 +32,12 @@ return function(profile)
                 vim.cmd("Telescope find_files")
             end,
         },
+        open_file_tree = {
+            desc = "Open the filebrowser",
+            func = function()
+                vim.cmd("NeoTreeFloatToggle")
+            end,
+        },
         quit_buffer = {
             desc = "Quit the current buffer",
             func = function()
