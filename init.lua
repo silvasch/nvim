@@ -21,7 +21,7 @@ require("core.plugins")(default_plugins, config.colorscheme, profile)
 
 require("core.mappings")(config.mappings)
 if not (config.command_palette_mapping == nil) then
-    local funcs = require("config.profiles." .. profile .. ".funcs")
+    local funcs = require("config.profiles." .. profile .. ".funcs")(profile)
     local funcs_for_func = {}
     for _, v in pairs(funcs) do
         table.insert(funcs_for_func, v)

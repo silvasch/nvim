@@ -1,6 +1,6 @@
 local profile = "dev"
 
-local funcs = require("config.profiles." .. profile .. ".funcs")
+local funcs = require("config.profiles." .. profile .. ".funcs")(profile)
 
 return {
     -- global configs
