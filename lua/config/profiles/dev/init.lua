@@ -20,7 +20,6 @@ return {
         timeoutlen = 150,
         signcolumn = "yes",
         background = "dark",
-
         termguicolors = true,
     },
     -- variables
@@ -207,12 +206,8 @@ return {
 
         -- statusline
         {
-            "freddiehaddad/feline.nvim",
-            config = function()
-                require("feline").setup({
-                    components = require("config.profiles." .. profile .. ".plugins.statusline")
-                })
-            end,
+            "nvim-lualine/lualine.nvim",
+            opts = require("config.profiles." .. profile .. ".plugins.statusline"),
         },
 
         -- themes
