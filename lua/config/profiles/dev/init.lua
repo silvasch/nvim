@@ -141,6 +141,7 @@ return {
                 require("crates").setup()
             end
         },
+        { "j-hui/fidget.nvim", config = true },
 
         -- neorg
         {
