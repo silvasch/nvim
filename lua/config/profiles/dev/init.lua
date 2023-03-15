@@ -20,6 +20,8 @@ return {
         timeoutlen = 150,
         signcolumn = "yes",
         background = "dark",
+
+        termguicolors = true,
     },
     -- variables
     -- you would set them with `:let k=v`, or in lua `vim.g[k] = v`
@@ -65,10 +67,10 @@ return {
                 },
 
             },
-            [":"] = {
-                "<cmd>FineCmdline<cr>",
-                "Open the command line",
-            },
+            -- [":"] = {
+            --     "<cmd>FineCmdline<cr>",
+            --     "Open the command line",
+            -- },
         },
         i = {},
         v = {},
@@ -191,6 +193,16 @@ return {
             build = "TSUpdate",
             config = function()
                 require("config.profiles." .. profile .. ".plugins.treesitter")
+            end,
+        },
+
+        -- statusline
+        {
+            "freddiehaddad/feline.nvim",
+            config = function()
+                require("feline").setup({
+                    components = require("config.profiles." .. profile .. ".plugins.statusline")
+                })
             end,
         },
 
