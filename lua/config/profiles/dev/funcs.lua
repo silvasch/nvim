@@ -1,8 +1,4 @@
-local function wrapped(cmd)
-    return function()
-        vim.cmd(cmd)
-    end
-end
+local wrapped = require("utils").wrapped
 
 -- funcs
 -- define all commands that the command palette should know here
