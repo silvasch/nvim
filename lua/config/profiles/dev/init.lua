@@ -228,6 +228,7 @@ return {
                 theme = "wave",
             },
         },
+        { "folke/tokyonight.nvim" },
     },
     -- autocmds
     -- example:
