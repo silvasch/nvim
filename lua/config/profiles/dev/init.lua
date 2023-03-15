@@ -129,9 +129,7 @@ return {
                 { "L3MON4D3/LuaSnip" },             -- required
                 { "rafamadriz/friendly-snippets" }, -- optional
             },
-            config = function()
-                require("config.profiles." .. profile .. ".plugins.lsp")
-            end
+            config = function() require("config.profiles." .. profile .. ".plugins.lsp") end,
         },
         {
             "folke/trouble.nvim",
@@ -149,9 +147,7 @@ return {
             dependencies = {
                 "nvim-lua/plenary.nvim",
             },
-            config = function()
-                require("crates").setup()
-            end
+            config = true,
         },
         { "j-hui/fidget.nvim",       config = true },
 
@@ -197,9 +193,7 @@ return {
         {
             "nvim-treesitter/nvim-treesitter",
             build = "TSUpdate",
-            config = function()
-                require("config.profiles." .. profile .. ".plugins.treesitter")
-            end,
+            config = function() require("config.profiles." .. profile .. ".plugins.treesitter") end
         },
 
         -- statusline
