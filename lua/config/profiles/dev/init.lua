@@ -66,10 +66,6 @@ return {
                 },
 
             },
-            -- [":"] = {
-            --     "<cmd>FineCmdline<cr>",
-            --     "Open the command line",
-            -- },
         },
         i = {},
         v = {},
@@ -86,10 +82,12 @@ return {
         { "famiu/bufdelete.nvim" },
         { "stevearc/dressing.nvim" },
         {
-            "VonHeikemen/fine-cmdline.nvim",
+            "akinsho/bufferline.nvim",
+            tag = "v3.*",
             dependencies = {
-                { "MunifTanjim/nui.nvim" },
+                "nvim-tree/nvim-web-devicons",
             },
+            config = true,
         },
 
         -- file pickers
