@@ -1,3 +1,9 @@
+local function wrapped(cmd)
+    return function()
+        vim.cmd(cmd)
+    end
+end
+
 -- funcs
 -- define all commands that the command palette should know here
 -- structure:
@@ -23,41 +29,29 @@ return function(profile)
         },
         quit_buffer = {
             desc = "Quit the current buffer",
-            func = function()
-                vim.cmd("quit")
-            end,
+            func = wrapped("quit"),
         },
         new_file = {
             desc = "Create a new file",
-            func = function()
-                vim.cmd("enew")
-            end
+            func = wrapped("enew"),
         },
         -- file picker
         find_files = {
             desc = "Open the file picker",
-            func = function()
-                vim.cmd("Telescope find_files")
-            end,
+            func = wrapped("Telescope find_files"),
         },
         -- config
         open_config_file = {
             desc = "Open the config file",
-            func = function()
-                vim.cmd("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/init.lua")
-            end
+            func = wrapped("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/init.lua"),
         },
         open_funcs_file = {
             desc = "Open the command definition file",
-            func = function()
-                vim.cmd("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/funcs.lua")
-            end
+            func = wrapped("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/init.lua"),
         },
         select_colorscheme = {
             desc = "Select the colorscheme",
-            func = function()
-                vim.cmd("Telescope colorscheme")
-            end
+            func = wrapped("Telescope colorscheme"),
         },
     }
 end
