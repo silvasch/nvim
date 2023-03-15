@@ -187,6 +187,15 @@ return {
         { "lewis6991/gitsigns.nvim", opts = {} },
         { "kdheepak/lazygit.nvim" },
 
+        {
+            "folke/noice.nvim",
+            config = true,
+            dependencies = {
+                { "MunifTanjim/nui.nvim" },
+                { "rcarriga/nvim-notify" },
+            },
+        },
+
         -- treesitter
         {
             "nvim-treesitter/nvim-treesitter",
