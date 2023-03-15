@@ -1,4 +1,4 @@
-local wrapped = require("utils").wrapped
+local wrapped_cmd = require("utils").wrapped_cmd
 
 -- funcs
 -- define all commands that the command palette should know here
@@ -24,35 +24,35 @@ return function(profile)
         },
         select_colorscheme = {
             desc = "Select the colorscheme",
-            func = wrapped("Telescope colorscheme"),
+            func = wrapped_cmd("Telescope colorscheme"),
         },
         find_files = {
             desc = "Open the file picker",
-            func = wrapped("Telescope find_files"),
+            func = wrapped_cmd("Telescope find_files"),
         },
         open_file_tree = {
             desc = "Open the filebrowser",
-            func = wrapped("NeoTreeFloatToggle"),
+            func = wrapped_cmd("NeoTreeFloatToggle"),
         },
         quit_buffer = {
             desc = "Quit the current buffer",
-            func = wrapped("quit"),
+            func = wrapped_cmd("quit"),
         },
         new_file = {
             desc = "Create a new file",
-            func = wrapped("enew"),
+            func = wrapped_cmd("enew"),
         },
         open_config_file = {
             desc = "Open the config file",
-            func = wrapped("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/init.lua"),
+            func = wrapped_cmd("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/init.lua"),
         },
         open_funcs_file = {
             desc = "Open the command definition file",
-            func = wrapped("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/funcs.lua"),
+            func = wrapped_cmd("e ~/.config/nvim/lua/config/profiles/" .. profile .. "/funcs.lua"),
         },
         open_trouble = {
             desc = "Open trouble",
-            func = wrapped("TroubleToggle"),
+            func = wrapped_cmd("TroubleToggle"),
         },
         -- lsp
         lsp_rename = {
@@ -81,7 +81,7 @@ return function(profile)
         },
         lazygit = {
             desc = "Open lazygit",
-            func = wrapped("LazyGit"),
+            func = wrapped_cmd("LazyGit"),
         }
     }
 end

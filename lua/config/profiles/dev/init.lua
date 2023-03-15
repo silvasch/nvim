@@ -1,6 +1,7 @@
 local profile = "dev"
 
-local funcs = require("config.profiles." .. profile .. ".funcs")(profile)
+local utils = require("utils")
+local funcs = require(utils.profile_mod(profile, "funcs"))(profile)
 
 return {
     -- global configs
@@ -129,7 +130,7 @@ return {
                 { "L3MON4D3/LuaSnip" },             -- required
                 { "rafamadriz/friendly-snippets" }, -- optional
             },
-            config = function() require("config.profiles." .. profile .. ".plugins.lsp") end,
+            config = utils.load_mod(utils.profile_mod(profile, "plugins.lsp")),
         },
         {
             "folke/trouble.nvim",
@@ -193,7 +194,7 @@ return {
         {
             "nvim-treesitter/nvim-treesitter",
             build = "TSUpdate",
-            config = function() require("config.profiles." .. profile .. ".plugins.treesitter") end
+            config = utils.load_mod(utils.profile_mod(profile, "plugins.treesitter")),
         },
 
         -- statusline
